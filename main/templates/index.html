@@ -8,6 +8,9 @@
     <title>CoronaScraper</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-2.4.2.min.css" rel="stylesheet" type="text/css">
+    <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.4.2.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -20,6 +23,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="text-center card-title">Germany</h4>
+                        <h5 class="text-center">Total Infections</h5>
+                        {{plot.Germany.total_infections.div|safe}}
+                        <br>
+                        <h5 class="text-center">Total Deaths</h5>
+                        {{plot.Germany.total_deaths.div|safe}}
+                        <br>
+                        <h5 class="text-center">7-Day Incidence</h5>
+                        {{plot.Germany.incidence.div|safe}}
                     </div>
                 </div>
             </div>
@@ -27,6 +38,14 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="text-center card-title">Austria</h4>
+                        <h5 class="text-center">Total Infections</h5>
+                        {{plot.Austria.total_infections.div|safe}}
+                        <br>
+                        <h5 class="text-center">Total Deaths</h5>
+                        {{plot.Austria.total_deaths.div|safe}}
+                        <br>
+                        <h5 class="text-center">7-Day Incidence</h5>
+                        {{plot.Austria.incidence.div|safe}}
                     </div>
                 </div>
             </div>
@@ -34,12 +53,31 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="text-center card-title">Switzerland</h4>
+                        <h5 class="text-center">Total Infections</h5>
+                        {{plot.Switzerland.total_infections.div|safe}}
+                        <br>
+                        <h5 class="text-center">Total Deaths</h5>
+                        {{plot.Switzerland.total_deaths.div|safe}}
+                        <br>
+                        <h5 class="text-center">7-Day Incidence</h5>
+                        {{plot.Switzerland.incidence.div|safe}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-api-2.4.2.min.js"></script>
+    {% for country, datatypes in plot.items %}
+    {% for datatype, data in datatypes.items %}
+    <p>{{data.script|safe}}</p>
+    
+    {% endfor %}
+    {% endfor %}
+
 </body>
 
 </html>

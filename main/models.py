@@ -5,4 +5,4 @@ class Record(models.Model):
     total_infections = models.IntegerField()
     total_deaths = models.IntegerField()
     incidence = models.DecimalField(max_digits=7, decimal_places=1)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)

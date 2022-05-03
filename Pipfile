@@ -5,11 +5,11 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-crontab = "*"
 numpy = "*"
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
+bokeh = "*"
 
 [dev-packages]
 

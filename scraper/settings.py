@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8_0(b7la00htuve2!bpkfezl-h)p8-g2$dlsu#8&#(&rk8hffp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['marco997.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_crontab',
     'main',
 ]
 
@@ -128,7 +127,3 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CRONJOBS = [
-    ('0 0 * * *', 'myapp.cron.my_scheduled_job')
-]

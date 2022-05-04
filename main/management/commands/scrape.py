@@ -1,3 +1,4 @@
+from shutil import ExecError
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
@@ -46,11 +47,12 @@ class Command(BaseCommand):
                 raise Exception('Data length is not 3')
             else:
                 # We add the data to the database
-                Record.objects.create(country='Germany', total_infections=data_ger[0], incidence=data_ger[1], total_deaths=data_ger[2])
+                record = Record(country='Germany', total_infections=data_ger[0], incidence=data_ger[1], total_deaths=data_ger[2])
+                record.save()
 
         except:
-            # Log the error
-            logging.error('Error while retrievieng data for Germany')
+            # Log the error and the current datetime
+            logging.error(f'Error while retrievieng data for Germany: {dt.now()}')
 
         # ------------------------ Austria ------------------------
 
@@ -87,11 +89,12 @@ class Command(BaseCommand):
                 raise Exception('Data length is not 3')
             else:
                 # We add the data to the database
-                Record.objects.create(country='Austria', total_infections=data_aut[0], incidence=data_aut[1], total_deaths=data_aut[2])
+                record = Record(country='Austria', total_infections=data_aut[0], incidence=data_aut[1], total_deaths=data_aut[2])
+                record.save()
 
         except:
-            # Log the error
-            logging.error('Error while retrievieng data for Austria')
+            # Log the error and the current datetime
+            logging.error(f'Error while retrievieng data for Germany: {dt.now()}')
 
         # ------------------------ Schweiz ------------------------
 
@@ -119,9 +122,10 @@ class Command(BaseCommand):
                 raise Exception('Data length is not 3')
             else:
                 # We add the data to the database
-                Record.objects.create(country='Switzerland', total_infections=data_swi[0], incidence=data_swi[1], total_deaths=data_swi[2])
+                record = Record(country='Switzerland', total_infections=data_swi[0], incidence=data_swi[1], total_deaths=data_swi[2])
+                record.save()
 
         except:
-            # Log the error
-            logging.error('Error while retrievieng data for Switzerland')
+            # Log the error and the current datetime
+            logging.error(f'Error while retrievieng data for Germany: {dt.now()}')
 

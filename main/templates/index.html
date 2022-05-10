@@ -16,6 +16,7 @@
 <body>
     <nav class="navbar navbar-light navbar-expand-md" style="height: 60px;background: var(--bs-gray-600);">
         <div class="container-fluid"><a class="navbar-brand" href="{% url 'index' %}">Corona Tracker</a></div>
+        <a class="btn btn-primary" type="button" style="margin-right: 35px;" href="{% url 'download' %}">Download</a>
     </nav>
     <div class="container" style="margin-top: 16px;padding: 0px;">
         <div class="row">
@@ -71,6 +72,7 @@
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
     <script src="https://cdn.bokeh.org/bokeh/release/bokeh-api-2.4.2.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
     {% for country, datatypes in plot.items %}
     {% for datatype, data in datatypes.items %}
     <p>{{data.script|safe}}</p>

@@ -94,7 +94,7 @@ class Command(BaseCommand):
 
         except:
             # Log the error and the current datetime
-            logging.error(f'Error while retrievieng data for Germany: {dt.now()}')
+            logging.error(f'Error while retrievieng data for Austria: {dt.now()}')
 
         # ------------------------ Schweiz ------------------------
 
@@ -127,5 +127,5 @@ class Command(BaseCommand):
 
         except:
             # Log the error and the current datetime
-            logging.error(f'Error while retrievieng data for Germany: {dt.now()}')
+            logging.error(f'Error while retrievieng data for Switzerland: {dt.now()}')
 
